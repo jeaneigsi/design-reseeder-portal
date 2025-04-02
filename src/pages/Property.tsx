@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { 
@@ -33,6 +32,7 @@ import {
 import PropertyCard from "@/components/PropertyCard";
 import BreadcrumbNav from "@/components/BreadcrumbNav";
 import RealEstateAgentCTA from "@/components/RealEstateAgentCTA";
+import PropertyNavbar from "@/components/PropertyNavbar";
 
 interface PropertyData {
   id: number;
@@ -165,6 +165,7 @@ const Property = () => {
   return (
     <div className="min-h-screen bg-gray-50 pb-12">
       <BreadcrumbNav />
+      <PropertyNavbar />
       
       {/* Main Content */}
       <div className="container mx-auto px-4 py-8">
