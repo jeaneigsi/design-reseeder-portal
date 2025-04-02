@@ -95,12 +95,14 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
             >
               {isCompared ? "Compared" : "Compare"}
             </Button>
-            <Button 
-              size="sm" 
-              className="text-xs bg-white text-primary border border-primary hover:bg-primary hover:text-white"
-            >
-              Details
-            </Button>
+            <Link to={`/property/${property.id}`}>
+              <Button 
+                size="sm" 
+                className="text-xs bg-white text-primary border border-primary hover:bg-primary hover:text-white"
+              >
+                Details
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
