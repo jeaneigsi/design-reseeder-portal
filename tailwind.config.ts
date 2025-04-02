@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -25,7 +26,7 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
+					DEFAULT: '#00a98e', // Green color from the design
 					foreground: 'hsl(var(--primary-foreground))'
 				},
 				secondary: {
@@ -61,7 +62,9 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				mint: '#e3f4f2', // Light mint color for the testimonials section
+				darkblue: '#1e2029', // Dark blue for footer
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -89,6 +92,9 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
+			},
+			backgroundImage: {
+				'hero-pattern': "url('/lovable-uploads/277d9cec-9502-459e-8afb-333b5767c215.png')"
 			}
 		}
 	},
