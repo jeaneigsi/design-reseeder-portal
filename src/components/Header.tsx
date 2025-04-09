@@ -36,9 +36,8 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/property" className={`${isActive('/property') ? 'text-primary' : 'text-white'} hover:text-primary transition-colors`}>
-                  Propriétés
-                </Link>
+                <Link to="/property" className={`${isActive('/property') ? 'text-primary' : 'text-white'} hover:text-primary transition-colors`}>55555
+              </Link>
               </li>
               <li>
                 <Link to="/contact" className={`${isActive('/contact') ? 'text-primary' : 'text-white'} hover:text-primary transition-colors`}>
