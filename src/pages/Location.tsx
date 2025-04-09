@@ -1,9 +1,8 @@
 
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import PropertyCard from "@/components/PropertyCard";
-import BreadcrumbNav from "@/components/BreadcrumbNav";
-import { Button } from "@/components/ui/button";
 import { 
   Select,
   SelectContent,
@@ -11,159 +10,104 @@ import {
   SelectTrigger,
   SelectValue 
 } from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Search, Filter } from "lucide-react";
+import { 
+  MapPin, 
+  LayoutGrid,
+  List,
+  Search
+} from "lucide-react";
 import { 
   Pagination, 
   PaginationContent, 
+  PaginationEllipsis, 
   PaginationItem, 
   PaginationLink, 
   PaginationNext, 
   PaginationPrevious 
 } from "@/components/ui/pagination";
+import PropertyCard from "@/components/PropertyCard";
+import BreadcrumbNav from "@/components/BreadcrumbNav";
+import RealEstateAgentCTA from "@/components/RealEstateAgentCTA";
+import PropertyNavbar from "@/components/PropertyNavbar";
+import { parcelsData, Parcel } from "@/data/parcelsData";
 
 const Location = () => {
-  const properties = [
-    {
-      id: 1,
-      title: "Appartement meublé à Casablanca",
-      address: "Gauthier, Casablanca",
-      price: 9500,
-      beds: 2,
-      baths: 1,
-      sqft: 85,
-      image: "https://images.unsplash.com/photo-1556912167-f556f1f39fdf",
-      featured: true,
-      forSale: false
-    },
-    {
-      id: 2,
-      title: "Duplex moderne à Marrakech",
-      address: "Guéliz, Marrakech",
-      price: 12000,
-      beds: 3,
-      baths: 2,
-      sqft: 130,
-      image: "https://images.unsplash.com/photo-1600210491369-e753d80a41f3",
-      featured: true,
-      forSale: false
-    },
-    {
-      id: 3,
-      title: "Studio au centre de Rabat",
-      address: "Agdal, Rabat",
-      price: 5000,
-      beds: 1,
-      baths: 1,
-      sqft: 45,
-      image: "https://images.unsplash.com/photo-1556912173-3bb406ef7e8b",
-      featured: false,
-      forSale: false
-    },
-    {
-      id: 4,
-      title: "Appartement vue mer à Tanger",
-      address: "Corniche, Tanger",
-      price: 8000,
-      beds: 2,
-      baths: 1,
-      sqft: 90,
-      image: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c",
-      featured: false,
-      forSale: false
-    },
-    {
-      id: 5,
-      title: "Villa avec piscine à Essaouira",
-      address: "Ghazoua, Essaouira",
-      price: 15000,
-      beds: 4,
-      baths: 3,
-      sqft: 220,
-      image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
-      featured: true,
-      forSale: false
-    },
-    {
-      id: 6,
-      title: "Appartement moderne à Fès",
-      address: "Ville Nouvelle, Fès",
-      price: 6500,
-      beds: 2,
-      baths: 1,
-      sqft: 80,
-      image: "https://images.unsplash.com/photo-1600566753376-12c8ab8e17a5",
-      featured: false,
-      forSale: false
-    }
-  ];
-
+  const [view, setView] = useState<"grid" | "list">("grid");
+  const [currentPage, setCurrentPage] = useState(1);
+  
+  // Filter only properties that are not for sale (for rent)
+  // Since we don't have a "forRent" flag explicitly, we'll assume properties without forSale=true are for rent
+  const forRentProperties = parcelsData.filter(p => !p.forSale);
+  
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen bg-gray-50 pb-12">
       <Header />
+      <BreadcrumbNav />
+      <PropertyNavbar />
       
-      <div className="pt-20 flex-grow">
-        <BreadcrumbNav />
-        
-        <div className="bg-gray-100 py-10">
-          <div className="container mx-auto px-4">
-            <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center">Location de propriétés au Maroc</h1>
+      {/* Main Content */}
+      <div className="container mx-auto px-4 py-8">
+        <div className="flex justify-between items-center mb-8 flex-wrap gap-4">
+          <h1 className="text-2xl md:text-3xl font-bold">Propriétés à Louer</h1>
+          
+          <div className="flex items-center space-x-4">
+            <div className="flex items-center">
+              <span className="mr-2 text-gray-600">Filtrer</span>
+              <Select>
+                <SelectTrigger className="w-[100px]">
+                  <SelectValue placeholder="Tous" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">Tous</SelectItem>
+                  <SelectItem value="featured">En vedette</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
             
-            <div className="max-w-4xl mx-auto bg-white p-4 rounded-lg shadow-md flex flex-col md:flex-row gap-4">
-              <div className="flex-grow">
-                <Input placeholder="Rechercher par ville, quartier..." className="h-12" />
-              </div>
-              <div className="w-full md:w-48">
-                <Select>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Type de bien" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="all">Tous les biens</SelectItem>
-                    <SelectItem value="apartment">Appartement</SelectItem>
-                    <SelectItem value="villa">Villa</SelectItem>
-                    <SelectItem value="studio">Studio</SelectItem>
-                    <SelectItem value="house">Maison</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              <div className="w-full md:w-48">
-                <Select>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Budget / mois" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="5000">Jusqu'à 5000 MAD</SelectItem>
-                    <SelectItem value="10000">Jusqu'à 10000 MAD</SelectItem>
-                    <SelectItem value="15000">Jusqu'à 15000 MAD</SelectItem>
-                    <SelectItem value="20000">Jusqu'à 20000 MAD</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-              <Button className="h-12 gap-2">
-                <Search size={18} />
-                Rechercher
-              </Button>
+            <div className="flex items-center border rounded-md overflow-hidden">
+              <button 
+                className={`p-2 ${view === 'grid' ? 'bg-primary text-white' : 'bg-white'}`} 
+                onClick={() => setView('grid')}
+              >
+                <LayoutGrid size={18} />
+              </button>
+              <button 
+                className={`p-2 ${view === 'list' ? 'bg-primary text-white' : 'bg-white'}`} 
+                onClick={() => setView('list')}
+              >
+                <List size={18} />
+              </button>
+            </div>
+            
+            <div className="flex items-center">
+              <span className="mr-2 text-gray-600">Trier par</span>
+              <Select>
+                <SelectTrigger className="w-[120px]">
+                  <SelectValue placeholder="Défaut" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="default">Défaut</SelectItem>
+                  <SelectItem value="price-high">Prix (Haut)</SelectItem>
+                  <SelectItem value="price-low">Prix (Bas)</SelectItem>
+                  <SelectItem value="newest">Plus récent</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
           </div>
         </div>
         
-        <div className="container mx-auto px-4 py-12">
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-xl font-semibold">Propriétés à louer</h2>
-            <div className="flex items-center gap-2">
-              <Filter size={18} />
-              <span>Filtres</span>
-            </div>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {forRentProperties.map((property) => (
+            <PropertyCard key={property.id} property={property} />
+          ))}
+        </div>
+        
+        <div className="mt-10 flex flex-col sm:flex-row justify-between items-center">
+          <p className="text-gray-500 mb-4 sm:mb-0">Affichage de 1-{forRentProperties.length} sur {forRentProperties.length} résultats</p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {properties.map(property => (
-              <PropertyCard key={property.id} property={property} />
-            ))}
-          </div>
-          
-          <Pagination className="mt-10">
+          <Pagination>
             <PaginationContent>
               <PaginationItem>
                 <PaginationPrevious href="#" />
@@ -175,7 +119,10 @@ const Location = () => {
                 <PaginationLink href="#">2</PaginationLink>
               </PaginationItem>
               <PaginationItem>
-                <PaginationLink href="#">3</PaginationLink>
+                <PaginationEllipsis />
+              </PaginationItem>
+              <PaginationItem>
+                <PaginationLink href="#">20</PaginationLink>
               </PaginationItem>
               <PaginationItem>
                 <PaginationNext href="#" />
@@ -185,6 +132,7 @@ const Location = () => {
         </div>
       </div>
       
+      <RealEstateAgentCTA />
       <Footer />
     </div>
   );

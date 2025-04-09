@@ -199,11 +199,11 @@ export const parcelsData: Parcel[] = [
 
 // Helper function to format price
 export const formatPrice = (price: Price): string => {
+  // "DH" is not a valid ISO currency code, so we use "MAD" (Moroccan Dirham) instead
   return new Intl.NumberFormat('fr-MA', {
     style: 'currency',
-    currency: price.currency,
-    maximumFractionDigits: 0,
-    currencyDisplay: 'code'
+    currency: 'MAD',
+    maximumFractionDigits: 0
   }).format(price.value)
   .replace('MAD', price.currency);
 };

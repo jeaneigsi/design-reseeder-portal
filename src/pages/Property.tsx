@@ -14,14 +14,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { 
   MapPin, 
-  Bed, 
-  Bath, 
-  SquareIcon, 
-  ChevronLeft,
-  ChevronRight,
-  Search,
   LayoutGrid,
-  List
+  List,
+  Search
 } from "lucide-react";
 import { 
   Pagination, 
@@ -36,135 +31,12 @@ import PropertyCard from "@/components/PropertyCard";
 import BreadcrumbNav from "@/components/BreadcrumbNav";
 import RealEstateAgentCTA from "@/components/RealEstateAgentCTA";
 import PropertyNavbar from "@/components/PropertyNavbar";
-
-interface PropertyData {
-  id: number;
-  title: string;
-  address: string;
-  price: number;
-  beds: number;
-  baths: number;
-  sqft: number;
-  image: string;
-  featured: boolean;
-  forSale: boolean;
-}
+import { parcelsData, Parcel } from "@/data/parcelsData";
 
 const Property = () => {
   const [view, setView] = useState<"grid" | "list">("grid");
   const [currentPage, setCurrentPage] = useState(1);
   
-  const properties: PropertyData[] = [
-    {
-      id: 1,
-      title: "Elegant studio flat",
-      address: "102 Ingraham St, Brooklyn, NY 11237",
-      price: 8600,
-      beds: 3,
-      baths: 3,
-      sqft: 4243,
-      image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2",
-      featured: true,
-      forSale: true
-    },
-    {
-      id: 2,
-      title: "Elegant studio flat",
-      address: "102 Ingraham St, Brooklyn, NY 11237",
-      price: 8600,
-      beds: 3,
-      baths: 3,
-      sqft: 4243,
-      image: "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8",
-      featured: true,
-      forSale: true
-    },
-    {
-      id: 3,
-      title: "Elegant studio flat",
-      address: "102 Ingraham St, Brooklyn, NY 11237",
-      price: 8600,
-      beds: 3,
-      baths: 3,
-      sqft: 4243,
-      image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
-      featured: true,
-      forSale: true
-    },
-    {
-      id: 4,
-      title: "Elegant studio flat",
-      address: "102 Ingraham St, Brooklyn, NY 11237",
-      price: 8600,
-      beds: 3,
-      baths: 3,
-      sqft: 4243,
-      image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
-      featured: true,
-      forSale: true
-    },
-    {
-      id: 5,
-      title: "Elegant studio flat",
-      address: "102 Ingraham St, Brooklyn, NY 11237",
-      price: 8600,
-      beds: 3,
-      baths: 3,
-      sqft: 4243,
-      image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9",
-      featured: true,
-      forSale: true
-    },
-    {
-      id: 6,
-      title: "Elegant studio flat",
-      address: "102 Ingraham St, Brooklyn, NY 11237",
-      price: 8600,
-      beds: 3,
-      baths: 3,
-      sqft: 4243,
-      image: "https://images.unsplash.com/photo-1560184897-ae75f418493e",
-      featured: true,
-      forSale: true
-    },
-    {
-      id: 7,
-      title: "Elegant studio flat",
-      address: "102 Ingraham St, Brooklyn, NY 11237",
-      price: 8600,
-      beds: 3,
-      baths: 3,
-      sqft: 4243,
-      image: "https://images.unsplash.com/photo-1600566753151-384129cf4e3e",
-      featured: true,
-      forSale: true
-    },
-    {
-      id: 8,
-      title: "Elegant studio flat",
-      address: "102 Ingraham St, Brooklyn, NY 11237",
-      price: 8600,
-      beds: 3,
-      baths: 3,
-      sqft: 4243,
-      image: "https://images.unsplash.com/photo-1600210492493-0946911123ea",
-      featured: true,
-      forSale: true
-    },
-    {
-      id: 9,
-      title: "Elegant studio flat",
-      address: "102 Ingraham St, Brooklyn, NY 11237",
-      price: 8600,
-      beds: 3,
-      baths: 3,
-      sqft: 4243,
-      image: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde",
-      featured: true,
-      forSale: true
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-gray-50 pb-12">
       <Header />
@@ -225,13 +97,13 @@ const Property = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {properties.map((property) => (
+          {parcelsData.map((property) => (
             <PropertyCard key={property.id} property={property} />
           ))}
         </div>
         
         <div className="mt-10 flex flex-col sm:flex-row justify-between items-center">
-          <p className="text-gray-500 mb-4 sm:mb-0">Affichage de 1-9 sur 42 résultats</p>
+          <p className="text-gray-500 mb-4 sm:mb-0">Affichage de 1-{parcelsData.length} sur {parcelsData.length} résultats</p>
           
           <Pagination>
             <PaginationContent>
