@@ -1,5 +1,8 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { 
   Select,
   SelectContent,
@@ -164,26 +167,27 @@ const Property = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 pb-12">
+      <Header />
       <BreadcrumbNav />
       <PropertyNavbar />
       
       {/* Main Content */}
       <div className="container mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-8 flex-wrap gap-4">
-          <h1 className="text-2xl md:text-3xl font-bold">Property listing</h1>
+          <h1 className="text-2xl md:text-3xl font-bold">Liste des propriétés</h1>
           
           <div className="flex items-center space-x-4">
             <div className="flex items-center">
-              <span className="mr-2 text-gray-600">Filter</span>
+              <span className="mr-2 text-gray-600">Filtrer</span>
               <Select>
                 <SelectTrigger className="w-[100px]">
-                  <SelectValue placeholder="All" />
+                  <SelectValue placeholder="Tous" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All</SelectItem>
-                  <SelectItem value="sale">For Sale</SelectItem>
-                  <SelectItem value="rent">For Rent</SelectItem>
-                  <SelectItem value="featured">Featured</SelectItem>
+                  <SelectItem value="all">Tous</SelectItem>
+                  <SelectItem value="sale">À vendre</SelectItem>
+                  <SelectItem value="rent">À louer</SelectItem>
+                  <SelectItem value="featured">En vedette</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -204,16 +208,16 @@ const Property = () => {
             </div>
             
             <div className="flex items-center">
-              <span className="mr-2 text-gray-600">Sort by</span>
+              <span className="mr-2 text-gray-600">Trier par</span>
               <Select>
                 <SelectTrigger className="w-[120px]">
-                  <SelectValue placeholder="Default" />
+                  <SelectValue placeholder="Défaut" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="default">Default</SelectItem>
-                  <SelectItem value="price-high">Price (High)</SelectItem>
-                  <SelectItem value="price-low">Price (Low)</SelectItem>
-                  <SelectItem value="newest">Newest</SelectItem>
+                  <SelectItem value="default">Défaut</SelectItem>
+                  <SelectItem value="price-high">Prix (Haut)</SelectItem>
+                  <SelectItem value="price-low">Prix (Bas)</SelectItem>
+                  <SelectItem value="newest">Plus récent</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -227,7 +231,7 @@ const Property = () => {
         </div>
         
         <div className="mt-10 flex flex-col sm:flex-row justify-between items-center">
-          <p className="text-gray-500 mb-4 sm:mb-0">Showing 1-9 of 42 results</p>
+          <p className="text-gray-500 mb-4 sm:mb-0">Affichage de 1-9 sur 42 résultats</p>
           
           <Pagination>
             <PaginationContent>
@@ -255,6 +259,7 @@ const Property = () => {
       </div>
       
       <RealEstateAgentCTA />
+      <Footer />
     </div>
   );
 };
