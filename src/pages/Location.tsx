@@ -30,7 +30,6 @@ import {
 import PropertyCard from "@/components/PropertyCard";
 import BreadcrumbNav from "@/components/BreadcrumbNav";
 import RealEstateAgentCTA from "@/components/RealEstateAgentCTA";
-import PropertyNavbar from "@/components/PropertyNavbar";
 import { parcelsData, Parcel } from "@/data/parcelsData";
 
 const Location = () => {
@@ -45,7 +44,6 @@ const Location = () => {
     <div className="min-h-screen bg-gray-50 pb-12">
       <Header />
       <BreadcrumbNav />
-      <PropertyNavbar />
       
       {/* Main Content */}
       <div className="container mx-auto px-4 py-8">

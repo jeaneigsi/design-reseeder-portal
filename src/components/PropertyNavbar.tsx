@@ -1,12 +1,13 @@
 
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
+import { useLocation } from 'react-router-dom';
+import { NavigationMenu, NavigationMenuList, NavigationMenuItem } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 
 const PropertyNavbar = () => {
   const [activeMenu, setActiveMenu] = useState('overview');
   const [sticky, setSticky] = useState(false);
+  const location = useLocation();
   
   const menuItems = [
     { id: 'overview', label: 'Vue d\'ensemble' },
@@ -53,6 +54,11 @@ const PropertyNavbar = () => {
       window.removeEventListener('hashchange', handleHashChange);
     };
   }, []);
+  
+  // Only display the navbar on property detail page
+  if (!location.pathname.includes('/property/')) {
+    return null;
+  }
   
   const handleMenuClick = (id: string) => {
     setActiveMenu(id);
