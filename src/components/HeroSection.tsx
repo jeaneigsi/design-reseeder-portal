@@ -40,7 +40,7 @@ const HeroSection = () => {
   const uniqueLocations = Array.from(new Set(parcelsData.map(parcel => parcel.location.split(', ')[0])));
 
   return (
-    <section className="relative min-h-screen bg-cover bg-center" style={{backgroundImage: "url('src/assets/morrocco.jpeg')"}}> 
+    <section className="relative min-h-screen bg-cover bg-center" style={{backgroundImage: "url('/morrocco.jpeg')"}}> 
       <div className="absolute inset-0 bg-black bg-opacity-10"></div>
       <div className="container relative mx-auto px-4 h-full flex flex-col items-center justify-center text-center z-[1] pt-28 pb-32">
         <h1 className="text-5xl md:text-6xl text-white font-bold mb-4">Votre chemin vers la maison commence ici</h1>

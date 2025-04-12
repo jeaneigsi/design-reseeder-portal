@@ -120,7 +120,7 @@ const PropertyDetail = () => {
         {/* Bouton Retour avec l'historique conservé */}
         <button 
           onClick={handleBackToList}
-          className="flex items-center text-primary hover:text-primary-dark transition-colors mb-6"
+          className="flex items-center text-primary hover:text-primary-dark transition-colors mb-6 focus:outline-none"
         >
           <ArrowLeft className="h-4 w-4 mr-1" />
           <span>Retour à la liste</span>
@@ -319,6 +319,15 @@ const PropertyDetail = () => {
               </div>
               
               <Button className="w-full">Contacter le vendeur</Button>
+
+              {/* Bouton d'étude de faisabilité */}
+              <Button 
+                variant="outline" 
+                className="w-full mt-3 relative overflow-hidden group"
+              >
+                <span className="relative z-10">Étude de faisabilité</span>
+                <div className="absolute bottom-0 left-0 w-full h-0 bg-primary/20 transition-all duration-500 group-hover:h-full"></div>
+              </Button>
             </motion.div>
             
             <motion.div 
