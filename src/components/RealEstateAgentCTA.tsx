@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -20,8 +19,8 @@ const RealEstateAgentCTA = () => {
               />
             </div>
             <div className="text-center md:text-left">
-              <h3 className="text-2xl font-bold mb-2">Find a Local Real Estate Agent Today</h3>
-              <p className="text-white/90">If you're looking to buy or sell a home, we'll help you make the most money possible.</p>
+              <h3 className="text-2xl font-bold mb-2">Trouvez un agent immobilier local aujourd'hui</h3>
+              <p className="text-white/90">Si vous cherchez à acheter ou à vendre une maison, nous vous aiderons à en tirer le meilleur prix possible.</p>
             </div>
           </div>
           
@@ -31,7 +30,7 @@ const RealEstateAgentCTA = () => {
                 type="text"
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
-                placeholder="Find your location agent"
+                placeholder="Trouvez un agent dans votre localité"
                 className="pl-3 pr-10 py-2 rounded-md w-full lg:w-64 text-gray-800 border-none"
               />
               <Button 

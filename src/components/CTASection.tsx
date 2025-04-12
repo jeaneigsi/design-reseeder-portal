@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 
 const CTASection = () => {
@@ -9,10 +8,10 @@ const CTASection = () => {
           <div className="md:w-2/3 md:pr-8 mb-6 md:mb-0">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">Vendez-vous ou louez-vous votre propriété ?</h2>
             <p className="text-white opacity-90 mb-4">
-            Laissez-nous vous aider avec des services professionnels et le meilleur réseau d’agents
+            Laissez-nous vous aider avec des services professionnels et le meilleur réseau d'agents
             </p>
             <div className="space-x-4">
-              <Button variant="secondary">Get In Touch</Button>
+              <Button variant="secondary">Contactez-nous</Button>
               <Button variant="outline" className="text-black border-white hover:bg-white hover:text-primary">Savoir plus</Button>
             </div>
           </div>

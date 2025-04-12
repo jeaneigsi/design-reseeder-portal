@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -26,7 +25,7 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: '#00a98e', // Green color from the design
+					DEFAULT: '#5E8C61', // Changé de #00a98e en #5E8C61 (pour les boutons, pictogrammes)
 					foreground: 'hsl(var(--primary-foreground))'
 				},
 				secondary: {
@@ -63,8 +62,10 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				mint: '#e3f4f2', // Light mint color for the testimonials section
-				darkblue: '#1e2029', // Dark blue for footer
+				mint: '#E4F4F2', // Changé de #e3f4f2 en #E4F4F2 (pour adoucir les encarts)
+				darkblue: '#2E4057', // Changé de #1e2029 en #2E4057 (pour les titres, bandeaux)
+				textColor: '#222222', // Ajouté pour le texte principal
+				lightGray: '#D9D9D9', // Ajouté pour structurer les pages
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

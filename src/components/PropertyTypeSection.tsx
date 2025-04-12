@@ -1,23 +1,22 @@
-
 import { Home, Building2, Building, Warehouse, Castle, Compass, Mountain, Trees, Waves, Landmark } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-const PropertyTypeCard = ({ Icon, title }: { Icon: React.ElementType, title: string }) => {
+const PropertyTypeCard = ({ Icon, title, link }: { Icon: React.ElementType, title: string, link: string }) => {
   return (
-    <div className="flex flex-col items-center p-4 hover:shadow-md rounded-md transition-shadow duration-300">
+    <Link to={link} className="flex flex-col items-center p-4 hover:shadow-md rounded-md transition-shadow duration-300 hover:bg-gray-50">
       <Icon className="h-8 w-8 text-gray-600 mb-2" />
       <span className="text-sm text-gray-700">{title}</span>
-    </div>
+    </Link>
   );
 };
 
 const PropertyTypeSection = () => {
   const propertyTypes = [
-    { icon: Home, title: "Houses" },
-    { icon: Building2, title: "Apartment" },
-    { icon: Building, title: "Office" },
-    { icon: Warehouse, title: "Industrial" },
-    { icon: Castle, title: "Townhouse" },
-
+    { icon: Home, title: "Maisons", param: "Houses" },
+    { icon: Building2, title: "Appartements", param: "Apartment" },
+    { icon: Building, title: "Bureaux", param: "Office" },
+    { icon: Warehouse, title: "Industriel", param: "Industrial" },
+    { icon: Castle, title: "Maison de ville", param: "Townhouse" },
   ];
 
   return (
@@ -28,7 +27,12 @@ const PropertyTypeSection = () => {
         
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
           {propertyTypes.map((type, index) => (
-            <PropertyTypeCard key={index} Icon={type.icon} title={type.title} />
+            <PropertyTypeCard 
+              key={index} 
+              Icon={type.icon} 
+              title={type.title} 
+              link={`/property?type=${type.param}`}
+            />
           ))}
         </div>
       </div>

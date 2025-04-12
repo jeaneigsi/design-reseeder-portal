@@ -1,4 +1,3 @@
-
 // Mock data for property parcels
 export interface Seller {
   type: "STORE" | "INDIVIDUAL";
@@ -197,6 +196,306 @@ export const parcelsData: Parcel[] = [
     //forSale: true,
     createdAt: "2024-02-15",
     features: ["Proximité plage", "Quartier résidentiel", "Tous commerces", "Écoles à proximité"]
+  },
+  {
+    id: 6,
+    subject: "TERRAIN COMMERCIAL - 800M²",
+    location: "Fès, Quartier des Affaires",
+    price: {
+      value: 2200000,
+      currency: "DH"
+    },
+    images: [
+      "https://content.avito.ma/classifieds/images/10130169825?t=images",
+      "https://content.avito.ma/classifieds/images/10130169733?t=images"
+    ],
+    seller: {
+      type: "STORE",
+      name: "FES BUSINESS PROPERTIES",
+      isVerifiedSeller: true,
+      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7",
+      rating: 4.6,
+      reviews: 38,
+      phone: "(+212) 535-789456",
+      email: "contact@fesbusiness.ma"
+    },
+    description: "Terrain commercial idéalement situé au cœur du quartier des affaires de Fès. Excellente visibilité et accès facile. Adapté pour bureaux ou commerce.",
+    area: 800,
+    areaUnit: "m²",
+    featured: false,
+    forSale: true,
+    createdAt: "2024-01-18",
+    features: ["Zone commerciale", "Forte visibilité", "Accès facile", "Tous services"]
+  },
+  {
+    id: 7,
+    subject: "TERRAIN CONSTRUCTIBLE - 350M²",
+    location: "Meknès, Centre-ville",
+    price: {
+      value: 950000,
+      currency: "DH"
+    },
+    images: [
+      "https://content.avito.ma/classifieds/images/10110716582?t=images",
+      "https://content.avito.ma/classifieds/images/10110716649?t=images"
+    ],
+    seller: {
+      type: "INDIVIDUAL",
+      name: "Hassan Tazi",
+      isVerifiedSeller: true,
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+      rating: 4.3,
+      reviews: 21,
+      phone: "(+212) 663-456123",
+      email: "hassantazi@gmail.com"
+    },
+    description: "Terrain bien situé au centre de Meknès, proche de toutes commodités. Parfait pour projet résidentiel ou petit immeuble.",
+    area: 350,
+    areaUnit: "m²",
+    featured: false,
+    forSale: true,
+    createdAt: "2023-12-28",
+    features: ["Centre-ville", "Proximité commerces", "Quartier calme", "Accès facile"]
+  },
+  {
+    id: 8,
+    subject: "PARCELLE VIABILISÉE - 500M²",
+    location: "Tétouan, Zone Martil",
+    price: {
+      value: 1350000,
+      currency: "DH"
+    },
+    images: [
+      "https://content.avito.ma/classifieds/images/10132925629?t=images",
+      "https://content.avito.ma/classifieds/images/10132925631?t=images"
+    ],
+    seller: {
+      type: "STORE",
+      name: "NORD IMMOBILIER",
+      isVerifiedSeller: true,
+      image: "https://images.unsplash.com/photo-1541577141970-eebc83ebe30e",
+      rating: 4.8,
+      reviews: 45,
+      phone: "(+212) 539-123456",
+      email: "info@nordimmobilier.ma"
+    },
+    description: "Belle parcelle viabilisée proche de la plage de Martil. Terrain plat et sans contraintes particulières. Idéal pour villa de vacances.",
+    area: 500,
+    areaUnit: "m²",
+    featured: true,
+    forSale: true,
+    createdAt: "2024-02-05",
+    features: ["Viabilisé", "Proximité plage", "Vue dégagée", "Quartier résidentiel"]
+  },
+  {
+    id: 9,
+    subject: "TERRAIN POUR VILLA - 600M²",
+    location: "Marrakech, La Palmeraie",
+    price: {
+      value: 2800000,
+      currency: "DH"
+    },
+    images: [
+      "https://content.avito.ma/classifieds/images/10115340275?t=images",
+      "https://content.avito.ma/classifieds/images/10115340272?t=images"
+    ],
+    seller: {
+      type: "STORE",
+      name: "LUXURY MARRAKECH",
+      isVerifiedSeller: true,
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2",
+      rating: 4.9,
+      reviews: 72,
+      phone: "(+212) 524-567890",
+      email: "contact@luxurymarrakech.ma"
+    },
+    description: "Magnifique terrain dans le quartier prestigieux de La Palmeraie. Vue imprenable sur l'Atlas et environnement paisible. Parfait pour villa de luxe.",
+    area: 600,
+    areaUnit: "m²",
+    featured: true,
+    forSale: true,
+    createdAt: "2024-01-22",
+    features: ["Quartier prestigieux", "Vue sur Atlas", "Calme", "Sécurité 24/7"]
+  },
+  {
+    id: 10,
+    subject: "TERRAIN ZONE TOURISTIQUE - 1500M²",
+    location: "Essaouira, Bord de mer",
+    price: {
+      value: 3500000,
+      currency: "DH"
+    },
+    images: [
+      "https://content.avito.ma/classifieds/images/10132544752?t=images",
+      "https://content.avito.ma/classifieds/images/10132544751?t=images"
+    ],
+    seller: {
+      type: "INDIVIDUAL",
+      name: "Rachid Benali",
+      isVerifiedSeller: true,
+      image: "https://images.unsplash.com/photo-1557862921-37829c790f19",
+      rating: 4.7,
+      reviews: 31,
+      phone: "(+212) 670-891234",
+      email: "rachid.benali@gmail.com"
+    },
+    description: "Terrain exceptionnel en bord de mer à Essaouira. Idéal pour projet touristique, hôtel ou résidence de luxe. Vue imprenable sur l'océan.",
+    area: 1500,
+    areaUnit: "m²",
+    featured: true,
+    forSale: true,
+    createdAt: "2023-11-25",
+    features: ["Front de mer", "Vue océan", "Zone touristique", "Projet autorisé"]
+  },
+  {
+    id: 11,
+    subject: "TERRAIN RÉSIDENTIEL - 300M²",
+    location: "Casablanca, Californie",
+    price: {
+      value: 1100000,
+      currency: "DH"
+    },
+    images: [
+      "https://content.avito.ma/classifieds/images/10130169825?t=images",
+      "https://content.avito.ma/classifieds/images/10130169733?t=images"
+    ],
+    seller: {
+      type: "STORE",
+      name: "CASA PREMIUM",
+      isVerifiedSeller: true,
+      image: "https://images.unsplash.com/photo-1516876437184-593fda40c7ce",
+      rating: 4.5,
+      reviews: 58,
+      phone: "(+212) 522-345678",
+      email: "contact@casapremium.ma"
+    },
+    description: "Terrain bien situé dans le quartier résidentiel de Californie. Proche des écoles et commodités. Parfait pour construction de villa.",
+    area: 300,
+    areaUnit: "m²",
+    featured: false,
+    forSale: true,
+    createdAt: "2024-02-20",
+    features: ["Proximité écoles", "Quartier résidentiel", "Sécurisé", "Commerces à proximité"]
+  },
+  {
+    id: 12,
+    subject: "TERRAIN AGRICOLE - 2 HECTARES",
+    location: "Agadir, Périphérie",
+    price: {
+      value: 1700000,
+      currency: "DH"
+    },
+    images: [
+      "https://content.avito.ma/classifieds/images/10115340275?t=images",
+      "https://content.avito.ma/classifieds/images/10115340272?t=images"
+    ],
+    seller: {
+      type: "INDIVIDUAL",
+      name: "Fatima Zahra",
+      isVerifiedSeller: false,
+      image: "https://images.unsplash.com/photo-1659482633369-9dbd93b0830a",
+      rating: 4.0,
+      reviews: 12,
+      phone: "(+212) 668-123789",
+      email: "fatima.z@gmail.com"
+    },
+    description: "Terrain agricole fertile avec puits et système d'irrigation. Actuellement planté d'agrumes. Bon investissement agricole.",
+    area: 20000,
+    areaUnit: "m²",
+    featured: false,
+    forSale: true,
+    createdAt: "2023-10-30",
+    features: ["Irrigué", "Puits", "Plantation existante", "Accès routier"]
+  },
+  {
+    id: 13,
+    subject: "TERRAIN CONSTRUCTIBLE - 450M²",
+    location: "Rabat, Hay Riad",
+    price: {
+      value: 2100000,
+      currency: "DH"
+    },
+    images: [
+      "https://content.avito.ma/classifieds/images/10132925629?t=images",
+      "https://content.avito.ma/classifieds/images/10132925631?t=images"
+    ],
+    seller: {
+      type: "STORE",
+      name: "RIAD IMMOBILIER",
+      isVerifiedSeller: true,
+      image: "https://images.unsplash.com/photo-1556157382-97eda2f9e2bf",
+      rating: 4.8,
+      reviews: 64,
+      phone: "(+212) 537-987654",
+      email: "contact@riadimmo.ma"
+    },
+    description: "Terrain bien placé dans le quartier huppé de Hay Riad. Environnement calme et sécurisé. Idéal pour villa de standing.",
+    area: 450,
+    areaUnit: "m²",
+    featured: true,
+    forSale: true,
+    createdAt: "2024-01-15",
+    features: ["Quartier huppé", "Plans approuvés", "Titre foncier", "Facilement accessible"]
+  },
+  {
+    id: 14,
+    subject: "PARCELLE EN LOCATION - 800M²",
+    location: "Tanger, Zone Industrielle",
+    price: {
+      value: 15000,
+      currency: "DH"
+    },
+    images: [
+      "https://content.avito.ma/classifieds/images/10132544752?t=images",
+      "https://content.avito.ma/classifieds/images/10132544751?t=images"
+    ],
+    seller: {
+      type: "STORE",
+      name: "TANGER BUSINESS",
+      isVerifiedSeller: true,
+      image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e",
+      rating: 4.6,
+      reviews: 49,
+      phone: "(+212) 539-456123",
+      email: "info@tangerbusiness.ma"
+    },
+    description: "Parcelle industrielle disponible à la location. Idéale pour stockage ou activité industrielle légère. Contrat longue durée possible.",
+    area: 800,
+    areaUnit: "m²",
+    featured: false,
+    forSale: false,
+    createdAt: "2024-02-10",
+    features: ["Zone industrielle", "Clôturé", "Accès camions", "Surveillance"]
+  },
+  {
+    id: 15,
+    subject: "TERRAIN VUE MER - 500M²",
+    location: "Al Hoceima, Front de mer",
+    price: {
+      value: 1900000,
+      currency: "DH"
+    },
+    images: [
+      "https://content.avito.ma/classifieds/images/10110716582?t=images",
+      "https://content.avito.ma/classifieds/images/10110716649?t=images"
+    ],
+    seller: {
+      type: "INDIVIDUAL",
+      name: "Karim Amrani",
+      isVerifiedSeller: true,
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
+      rating: 4.5,
+      reviews: 26,
+      phone: "(+212) 661-987321",
+      email: "karim.amrani@gmail.com"
+    },
+    description: "Magnifique terrain avec vue imprenable sur la Méditerranée. Emplacement exceptionnel pour villa de vacances ou résidence principale.",
+    area: 500,
+    areaUnit: "m²",
+    featured: true,
+    forSale: true,
+    createdAt: "2023-12-15",
+    features: ["Vue mer", "Accès direct plage", "Environnement calme", "Titre foncier"]
   }
 ];
 

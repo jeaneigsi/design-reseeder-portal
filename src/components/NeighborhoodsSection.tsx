@@ -1,19 +1,20 @@
-
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 interface NeighborhoodCardProps {
   image: string;
   name: string;
+  link: string;
 }
 
-const NeighborhoodCard = ({ image, name }: NeighborhoodCardProps) => {
+const NeighborhoodCard = ({ image, name, link }: NeighborhoodCardProps) => {
   return (
-    <div className="relative rounded-lg overflow-hidden group">
+    <Link to={link} className="relative rounded-lg overflow-hidden group block">
       <img src={image} alt={name} className="w-full h-56 object-cover transition-transform duration-300 group-hover:scale-110" />
-      <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+      <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center group-hover:bg-opacity-50 transition-all duration-300">
         <h3 className="text-white font-bold text-xl">{name}</h3>
       </div>
-    </div>
+    </Link>
   );
 };
 
@@ -47,7 +48,11 @@ const NeighborhoodsSection = () => {
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {neighborhoods.map((neighborhood, index) => (
-            <NeighborhoodCard key={index} {...neighborhood} />
+            <NeighborhoodCard 
+              key={index} 
+              {...neighborhood} 
+              link={`/property?location=${neighborhood.name}`}
+            />
           ))}
         </div>
         

@@ -1,5 +1,4 @@
-
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -7,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { MapPin, Upload, X } from "lucide-react";
+import { MapPin, Upload, X, Camera, Image as ImageIcon } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { Parcel, parcelsData } from "@/data/parcelsData";
 
@@ -18,6 +17,8 @@ interface AddPropertyFormProps {
 
 const AddPropertyForm = ({ isOpen, onClose }: AddPropertyFormProps) => {
   const navigate = useNavigate();
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  
   const [formData, setFormData] = useState({
     subject: "",
     location: "",
@@ -31,10 +32,8 @@ const AddPropertyForm = ({ isOpen, onClose }: AddPropertyFormProps) => {
     featured: false
   });
   
-  const [images, setImages] = useState<string[]>([
-    "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb",
-    "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86"
-  ]);
+  const [images, setImages] = useState<string[]>([]);
+  const [isUploading, setIsUploading] = useState(false);
   
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -49,20 +48,45 @@ const AddPropertyForm = ({ isOpen, onClose }: AddPropertyFormProps) => {
     setImages((prev) => prev.filter((_, i) => i !== index));
   };
   
-  const handleAddImage = () => {
-    // Ajouter des images aléatoires d'Unsplash
-    const unsplashImages = [
-      "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb",
-      "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86",
-      "https://images.unsplash.com/photo-1518495973542-4542c06a5843",
-      "https://images.unsplash.com/photo-1469474968028-56623f02e42e",
-      "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05",
-      "https://images.unsplash.com/photo-1482881497185-d4a9ddbe4151",
-      "https://images.unsplash.com/photo-1426604966848-d7adac402bff"
-    ];
+  const handleFileInputClick = () => {
+    fileInputRef.current?.click();
+  };
+  
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files || files.length === 0) return;
     
-    const randomImage = unsplashImages[Math.floor(Math.random() * unsplashImages.length)];
-    setImages((prev) => [...prev, randomImage]);
+    setIsUploading(true);
+    
+    // Convertir les fichiers en URLs de données (base64)
+    Array.from(files).forEach(file => {
+      const reader = new FileReader();
+      
+      reader.onload = (event) => {
+        if (event.target && typeof event.target.result === 'string') {
+          setImages(prev => [...prev, event.target.result as string]);
+        }
+      };
+      
+      reader.onerror = () => {
+        toast({
+          title: "Erreur d'upload",
+          description: "Une erreur est survenue lors du chargement de l'image.",
+          variant: "destructive"
+        });
+      };
+      
+      reader.onloadend = () => {
+        setIsUploading(false);
+      };
+      
+      reader.readAsDataURL(file);
+    });
+    
+    // Réinitialiser l'input pour permettre de télécharger à nouveau le même fichier
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
   };
   
   const handleSubmit = (e: React.FormEvent) => {
@@ -72,6 +96,15 @@ const AddPropertyForm = ({ isOpen, onClose }: AddPropertyFormProps) => {
       toast({
         title: "Champs requis",
         description: "Veuillez remplir tous les champs obligatoires",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    if (images.length === 0) {
+      toast({
+        title: "Images requises",
+        description: "Veuillez ajouter au moins une image de la propriété",
         variant: "destructive"
       });
       return;
@@ -111,6 +144,21 @@ const AddPropertyForm = ({ isOpen, onClose }: AddPropertyFormProps) => {
       description: "Votre propriété a été ajoutée avec succès!",
       variant: "default"
     });
+    
+    // Réinitialiser le formulaire
+    setFormData({
+      subject: "",
+      location: "",
+      price: "",
+      area: "",
+      areaUnit: "m²",
+      description: "",
+      sellerType: "STORE",
+      sellerName: "",
+      forSale: true,
+      featured: false
+    });
+    setImages([]);
     
     onClose();
     // Rediriger vers la page de la nouvelle propriété
@@ -236,7 +284,7 @@ const AddPropertyForm = ({ isOpen, onClose }: AddPropertyFormProps) => {
             </div>
             
             <div className="space-y-2">
-              <Label>Images</Label>
+              <Label>Images *</Label>
               <div className="grid grid-cols-3 gap-2">
                 {images.map((image, index) => (
                   <div key={index} className="relative group">
@@ -254,14 +302,33 @@ const AddPropertyForm = ({ isOpen, onClose }: AddPropertyFormProps) => {
                     </button>
                   </div>
                 ))}
+                
+                <input 
+                  type="file" 
+                  ref={fileInputRef}
+                  accept="image/*" 
+                  multiple 
+                  className="hidden" 
+                  onChange={handleFileChange}
+                />
+                
                 <button
                   type="button"
-                  onClick={handleAddImage}
-                  className="h-24 w-full border-2 border-dashed border-gray-300 rounded flex items-center justify-center hover:border-primary transition-colors"
+                  onClick={handleFileInputClick}
+                  disabled={isUploading}
+                  className="h-24 w-full border-2 border-dashed border-gray-300 rounded flex flex-col items-center justify-center hover:border-primary transition-colors gap-2"
                 >
-                  <Upload className="h-6 w-6 text-gray-400" />
+                  {isUploading ? (
+                    <div className="animate-pulse">Chargement...</div>
+                  ) : (
+                    <>
+                      <Camera className="h-6 w-6 text-gray-400" />
+                      <span className="text-xs text-gray-500">Ajouter des photos</span>
+                    </>
+                  )}
                 </button>
               </div>
+              <p className="text-xs text-gray-500">Formats supportés: JPG, PNG, WEBP. Max 5MB par image.</p>
             </div>
             
             <div className="flex space-x-4">

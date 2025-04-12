@@ -1,24 +1,62 @@
-
 import { Badge } from "@/components/ui/badge";
 import { Heart, MapPin, ArrowRight, SquareIcon } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { parcelsData, formatPrice } from "@/data/parcelsData";
+
+// Structure pour les statistiques de popularité
+interface ParcelStats {
+  id: number;
+  views: number;
+  favorites: number;
+  totalScore: number;
+}
 
 const PopularSearches = () => {
   const [favorites, setFavorites] = useState<number[]>([]);
+  const [popularParcels, setPopularParcels] = useState(parcelsData.slice(0, 4));
   
-  const toggleFavorite = (id: number) => {
+  // Simuler des statistiques de popularité pour les parcelles
+  useEffect(() => {
+    // Générer des statistiques fictives basées sur les vues et les favoris
+    const stats: ParcelStats[] = parcelsData.map(parcel => {
+      // Générer un nombre aléatoire de vues entre 50 et 500
+      const views = Math.floor(Math.random() * 450) + 50;
+      // Générer un nombre aléatoire de favoris entre 5 et 50
+      const favorites = Math.floor(Math.random() * 45) + 5;
+      // Le score total est la somme des vues et des favoris (avec un poids plus important pour les favoris)
+      const totalScore = views + (favorites * 10);
+      
+      return {
+        id: parcel.id,
+        views,
+        favorites,
+        totalScore
+      };
+    });
+    
+    // Trier les parcelles par score total décroissant
+    const sortedStats = stats.sort((a, b) => b.totalScore - a.totalScore);
+    
+    // Récupérer les parcelles correspondant aux statistiques triées
+    const sortedParcels = sortedStats
+      .map(stat => parcelsData.find(p => p.id === stat.id))
+      .filter(p => p !== undefined)
+      .slice(0, 4);
+    
+    setPopularParcels(sortedParcels as typeof parcelsData);
+  }, []);
+  
+  const toggleFavorite = (id: number, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     if (favorites.includes(id)) {
       setFavorites(favorites.filter(favId => favId !== id));
     } else {
       setFavorites([...favorites, id]);
     }
   };
-
-  // Get the featured parcels
-  const featuredParcels = parcelsData.filter(p => p.featured).slice(0, 4);
 
   return (
     <section className="py-16">
@@ -29,14 +67,21 @@ const PopularSearches = () => {
             <p className="text-gray-500 text-sm">Sélection de parcelles par notre équipe</p>
           </div>
           <div className="hidden md:block">
-            <Button variant="outline" className="mr-2">Toutes les parcelles <ArrowRight className="ml-2 h-4 w-4" /></Button>
-            <Button className="bg-primary">Ajouter une parcelle</Button>
+            <Link to="/property">
+              <Button variant="outline" className="mr-2">Toutes les parcelles <ArrowRight className="ml-2 h-4 w-4" /></Button>
+            </Link>
+            <Button 
+              className="bg-primary"
+              onClick={() => document.dispatchEvent(new CustomEvent('open-add-property'))}
+            >
+              Ajouter une parcelle
+            </Button>
           </div>
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {featuredParcels.map((parcel) => (
-            <div key={parcel.id} className="rounded-lg overflow-hidden shadow-md bg-white">
+          {popularParcels.map((parcel) => (
+            <Link key={parcel.id} to={`/property/${parcel.id}`} className="block rounded-lg overflow-hidden shadow-md bg-white hover:shadow-lg transition-shadow duration-300">
               <div className="relative">
                 <img src={parcel.images[0]} alt={parcel.subject} className="w-full h-48 object-cover" />
                 <div className="absolute top-3 left-3 flex flex-col space-y-2">
@@ -49,16 +94,14 @@ const PopularSearches = () => {
                 </div>
                 <button 
                   className="absolute top-3 right-3 h-8 w-8 rounded-full bg-white/80 flex items-center justify-center"
-                  onClick={() => toggleFavorite(parcel.id)}
+                  onClick={(e) => toggleFavorite(parcel.id, e)}
                 >
                   <Heart className={`h-4 w-4 ${favorites.includes(parcel.id) ? 'fill-red-500 text-red-500' : ''}`} />
                 </button>
               </div>
               <div className="p-4">
                 <h3 className="font-bold text-lg">{formatPrice(parcel.price)}</h3>
-                <Link to={`/property/${parcel.id}`}>
-                  <h4 className="font-semibold mb-2 hover:text-primary transition-colors">{parcel.subject}</h4>
-                </Link>
+                <h4 className="font-semibold mb-2 hover:text-primary transition-colors">{parcel.subject}</h4>
                 <div className="flex items-center text-gray-500 text-sm mb-4">
                   <MapPin className="h-4 w-4 mr-1" />
                   <span>{parcel.location}</span>
@@ -73,7 +116,7 @@ const PopularSearches = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
         
@@ -86,10 +129,15 @@ const PopularSearches = () => {
         </div>
         
         <div className="md:hidden mt-6 flex flex-col space-y-2">
-          <Button variant="outline" className="w-full">Toutes les parcelles <ArrowRight className="ml-2 h-4 w-4" /></Button>
-          
-          <Button className="w-full bg-primary">Ajouter une parcelle</Button>
-        
+          <Link to="/property">
+            <Button variant="outline" className="w-full">Toutes les parcelles <ArrowRight className="ml-2 h-4 w-4" /></Button>
+          </Link>
+          <Button 
+            className="w-full bg-primary"
+            onClick={() => document.dispatchEvent(new CustomEvent('open-add-property'))}
+          >
+            Ajouter une parcelle
+          </Button>
         </div>
       </div>
     </section>
