@@ -18,8 +18,8 @@ const MarketSection = () => {
     >
       <div className="container mx-auto px-4">
         <div className="mb-10 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-2">Market Your Property With Equity</h2>
-          <p className="text-sm md:text-base">We'll help you sell your property for the highest possible price</p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-2">Vendre son bien au meilleurs prix</h2>
+          <p className="text-sm md:text-base">Nous vous aidons à vendre au meilleur prix possible</p>
         </div>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

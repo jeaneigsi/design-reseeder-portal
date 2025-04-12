@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Star } from 'lucide-react';
 
@@ -28,27 +27,27 @@ const AgentCard = ({ image, name, type, rating }: AgentCardProps) => {
 const AgentsSection = () => {
   const agents = [
     {
-      image: "/placeholder.svg",
-      name: "Olivia Johnson",
-      type: "Sales Agent",
+      image: "https://images.unsplash.com/photo-1656313826909-1f89d1702a81?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      name: "Aminata Diallo",
+      type: "Agent Commercial",
       rating: 4
     },
     {
-      image: "/placeholder.svg",
-      name: "Liam Wilson",
-      type: "Broker Agent",
+      image: "https://images.unsplash.com/photo-1656313826909-1f89d1702a81?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      name: "Kofi Mensah",
+      type: "Agent Courtier",
       rating: 5
     },
     {
-      image: "/placeholder.svg",
-      name: "Sophia Martinez",
-      type: "Rental Agent",
+      image: "https://images.unsplash.com/photo-1656313826909-1f89d1702a81?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      name: "Fatima Ouedraogo",
+      type: "Agent Location",
       rating: 4
     },
     {
-      image: "/placeholder.svg",
-      name: "Noah Thompson",
-      type: "Lead Agent",
+      image: "https://images.unsplash.com/photo-1656313826909-1f89d1702a81?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      name: "Ibrahim Toure",
+      type: "Agent Principal",
       rating: 5
     }
   ];
@@ -57,8 +56,8 @@ const AgentsSection = () => {
     <section className="py-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold mb-2">Choose Your Local Agent</h2>
-          <p className="text-gray-500 text-sm md:text-base">Our agents are highly qualified and ready to help you</p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-2">Notre equipe</h2>
+          <p className="text-gray-500 text-sm md:text-base">De professionnels qualifiés</p>
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

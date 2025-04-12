@@ -43,12 +43,14 @@ export const parcelsData: Parcel[] = [
       currency: "DH"
     },
     images: [
-      "https://images.unsplash.com/photo-1482881497185-d4a9ddbe4151",
-      "https://images.unsplash.com/photo-1426604966848-d7adac402bff",
-      "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb",
-      "https://images.unsplash.com/photo-1466721591366-2d5fba72006d",
-      "https://images.unsplash.com/photo-1469041797191-50ace28483c3"
-    ],
+      "https://content.avito.ma/classifieds/images/10130169825?t=images",
+      "https://content.avito.ma/classifieds/images/10130169733?t=images",
+      "https://content.avito.ma/classifieds/images/10130169609?t=images",
+      "https://content.avito.ma/classifieds/images/10130169619?t=images",
+      "https://content.avito.ma/classifieds/images/10130169635?t=images",
+      "https://content.avito.ma/classifieds/images/10130169679?t=images",
+      "https://content.avito.ma/classifieds/images/10130169712?t=images"
+  ],
     seller: {
       type: "STORE",
       name: "TIJARA DEVELOPPEMENT",
@@ -76,11 +78,14 @@ export const parcelsData: Parcel[] = [
       currency: "DH"
     },
     images: [
-      "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb",
-      "https://images.unsplash.com/photo-1466721591366-2d5fba72006d",
-      "https://images.unsplash.com/photo-1469041797191-50ace28483c3",
-      "https://images.unsplash.com/photo-1482881497185-d4a9ddbe4151"
-    ],
+              "https://content.avito.ma/classifieds/images/10115340275?t=images",
+              "https://content.avito.ma/classifieds/images/10115340272?t=images",
+              "https://content.avito.ma/classifieds/images/10124184737?t=images",
+              "https://content.avito.ma/classifieds/images/10115340271?t=images",
+              "https://content.avito.ma/classifieds/images/10115340270?t=images",
+              "https://content.avito.ma/classifieds/images/10115340278?t=images",
+              "https://content.avito.ma/classifieds/images/10115340279?t=images"
+          ],
     seller: {
       type: "INDIVIDUAL",
       name: "Mohamed Alami",
@@ -108,11 +113,12 @@ export const parcelsData: Parcel[] = [
       currency: "DH"
     },
     images: [
-      "https://images.unsplash.com/photo-1466721591366-2d5fba72006d",
-      "https://images.unsplash.com/photo-1482881497185-d4a9ddbe4151",
-      "https://images.unsplash.com/photo-1469041797191-50ace28483c3",
-      "https://images.unsplash.com/photo-1426604966848-d7adac402bff"
-    ],
+      "https://content.avito.ma/classifieds/images/10110716582?t=images",
+      "https://content.avito.ma/classifieds/images/10110716649?t=images",
+      "https://content.avito.ma/classifieds/images/10110716629?t=images",
+      "https://content.avito.ma/classifieds/images/10110716630?t=images",
+      "https://content.avito.ma/classifieds/images/10110716631?t=images"
+  ],
     seller: {
       type: "STORE",
       name: "TANGER IMMOBILIER",
@@ -140,11 +146,10 @@ export const parcelsData: Parcel[] = [
       currency: "DH"
     },
     images: [
-      "https://images.unsplash.com/photo-1469041797191-50ace28483c3",
-      "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb",
-      "https://images.unsplash.com/photo-1482881497185-d4a9ddbe4151",
-      "https://images.unsplash.com/photo-1466721591366-2d5fba72006d"
-    ],
+              "https://content.avito.ma/classifieds/images/10132544752?t=images",
+              "https://content.avito.ma/classifieds/images/10132544751?t=images",
+              "https://content.avito.ma/classifieds/images/10132544753?t=images"
+          ],
     seller: {
       type: "STORE",
       name: "RABAT PRO IMMOBILIER",
@@ -172,11 +177,9 @@ export const parcelsData: Parcel[] = [
       currency: "DH"
     },
     images: [
-      "https://images.unsplash.com/photo-1426604966848-d7adac402bff",
-      "https://images.unsplash.com/photo-1469041797191-50ace28483c3",
-      "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb",
-      "https://images.unsplash.com/photo-1466721591366-2d5fba72006d"
-    ],
+      "https://content.avito.ma/classifieds/images/10132925629?t=images",
+      "https://content.avito.ma/classifieds/images/10132925631?t=images"
+  ],
     seller: {
       type: "INDIVIDUAL",
       name: "Nadia Bensalem",
@@ -191,7 +194,7 @@ export const parcelsData: Parcel[] = [
     area: 400,
     areaUnit: "m²",
     featured: true,
-    forSale: true,
+    //forSale: true,
     createdAt: "2024-02-15",
     features: ["Proximité plage", "Quartier résidentiel", "Tous commerces", "Écoles à proximité"]
   }

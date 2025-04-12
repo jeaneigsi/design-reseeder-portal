@@ -23,7 +23,7 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <Link to="/" className="font-bold text-white text-xl">DARNA</Link>
+            <Link to="/" className="font-bold text-white text-xl">S2IM</Link>
           </div>
 
           <nav className="hidden md:block">
@@ -61,7 +61,7 @@ const Header = () => {
               <Phone className="h-4 w-4 mr-2" />
               <span>(+212) 522-123456</span>
             </div>
-            <Button variant="outline" className="text-white border-white hover:bg-white hover:text-black">Se connecter</Button>
+            <Button variant="outline" className="text-black border-white hover:bg-white hover:text-black">Se connecter</Button>
             <Button 
               className="bg-primary text-white hover:bg-primary/90"
               onClick={() => setIsAddPropertyOpen(true)}
@@ -111,7 +111,7 @@ const Header = () => {
                 <Phone className="h-4 w-4 mr-2" />
                 <span>(+212) 522-123456</span>
               </div>
-              <Button variant="outline" className="w-full text-white border-white hover:bg-white hover:text-black">Se connecter</Button>
+              <Button variant="outline" className="w-full text-black border-white hover:bg-white hover:text-black">Se connecter</Button>
               <Button 
                 className="w-full bg-primary text-white hover:bg-primary/90"
                 onClick={() => {

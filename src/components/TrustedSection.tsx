@@ -20,7 +20,7 @@ const StatCard = ({ title, description, value, Icon }: {
       </div>
       <div className="flex justify-between items-center">
         <span className="text-sm text-primary">{value}</span>
-        <button className="text-xs text-primary">View Stats</button>
+        <button className="text-xs text-primary">Voir Stats</button>
       </div>
     </div>
   );
@@ -32,41 +32,41 @@ const TrustedSection = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row">
           <div className="md:w-1/2 mb-8 md:mb-0">
-            <h2 className="text-2xl md:text-3xl font-bold mb-2">Trusted By 100+ Million Buyers</h2>
-            <p className="text-gray-600 mb-6">Find out why we're trusted by millions of homebuyers</p>
+            <h2 className="text-2xl md:text-3xl font-bold mb-2">Fait confiance par plus de 100 millions d'acheteurs</h2>
+            <p className="text-gray-600 mb-6">Découvrez pourquoi nous sommes choisis par des millions d'acheteurs</p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <StatCard 
                 Icon={Award}
-                title="LARGE DATA"
-                description="Market & Demographic Data"
-                value="21M+ Homes"
+                title="GRANDE BASE DE DONNÉES"
+                description="Données du marché & démographiques"
+                value="21M+ Biens"
               />
               <StatCard 
                 Icon={ThumbsUp}
-                title="HELPFUL AGENTS"
-                description="On Market Information"
-                value="3.5K+ Partners"
+                title="AGENTS QUALIFIÉS"
+                description="Informations du marché"
+                value="3.5K+ Partenaires"
               />
               <StatCard 
                 Icon={Star}
-                title="5-STAR APP"
-                description="iOS & Android Mobile Apps"
-                value="1.4M+ Downloads"
+                title="APP 5 ÉTOILES"
+                description="Apps iOS & Android"
+                value="1.4M+ Téléchargements"
               />
               <StatCard 
                 Icon={Trophy}
-                title="AWARD WINNING"
-                description="Recognized for Excellence"
-                value="40+ Awards"
+                title="RÉCOMPENSÉ"
+                description="Reconnu pour l'excellence"
+                value="40+ Prix"
               />
             </div>
           </div>
           
           <div className="md:w-1/2 md:pl-8 flex items-center justify-center">
             <img 
-              src="/placeholder.svg" 
-              alt="Real estate agent" 
+              src="https://images.unsplash.com/photo-1527338611623-4e242563220a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+              alt="Agent immobilier" 
               className="max-w-full h-auto rounded-lg" 
             />
           </div>

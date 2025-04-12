@@ -87,7 +87,9 @@ const PopularSearches = () => {
         
         <div className="md:hidden mt-6 flex flex-col space-y-2">
           <Button variant="outline" className="w-full">Toutes les parcelles <ArrowRight className="ml-2 h-4 w-4" /></Button>
+          
           <Button className="w-full bg-primary">Ajouter une parcelle</Button>
+        
         </div>
       </div>
     </section>

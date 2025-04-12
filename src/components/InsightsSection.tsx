@@ -1,4 +1,3 @@
-
 import { Clock, ArrowRight, MessageCircle } from 'lucide-react';
 
 interface BlogCardProps {
@@ -37,24 +36,24 @@ const BlogCard = ({ image, date, title, excerpt, comments }: BlogCardProps) => {
 const InsightsSection = () => {
   const blogs = [
     {
-      image: "/placeholder.svg",
-      date: "March 15, 2023",
-      title: "How to Stage Your Home to Sell Fast",
-      excerpt: "Learn the best practices for staging your home to attract buyers and get top dollar.",
+      image: "https://images.unsplash.com/photo-1546074177-ffdda98d214f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      date: "15 Mars 2023",
+      title: "Comment Préparer Votre Maison pour une Vente Rapide",
+      excerpt: "Découvrez les meilleures pratiques pour mettre en valeur votre maison et attirer les acheteurs au meilleur prix.",
       comments: 24
     },
     {
-      image: "/placeholder.svg",
-      date: "March 10, 2023",
-      title: "Tips for First-Time Home Buyers",
-      excerpt: "Everything you need to know before purchasing your first home in today's market.",
+      image: "https://images.unsplash.com/photo-1546074177-ffdda98d214f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      date: "10 Mars 2023",
+      title: "Conseils pour les Premiers Acheteurs",
+      excerpt: "Tout ce que vous devez savoir avant d'acheter votre première maison dans le marché actuel.",
       comments: 18
     },
     {
-      image: "/placeholder.svg",
-      date: "March 5, 2023",
-      title: "Investment Property: What to Look For",
-      excerpt: "Key factors to consider when purchasing a property for investment purposes.",
+      image: "https://images.unsplash.com/photo-1546074177-ffdda98d214f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      date: "5 Mars 2023",
+      title: "Investissement Immobilier : Les Points Essentiels",
+      excerpt: "Les facteurs clés à considérer lors de l'achat d'un bien immobilier à des fins d'investissement.",
       comments: 32
     }
   ];
@@ -63,8 +62,8 @@ const InsightsSection = () => {
     <section className="py-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold mb-2">Insight & Opinion</h2>
-          <p className="text-gray-500 text-sm md:text-base">Latest news and tips from the real estate market</p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-2">A lire</h2>
+          <p className="text-gray-500 text-sm md:text-base">Dernières actu du marché</p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

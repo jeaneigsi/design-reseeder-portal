@@ -20,20 +20,20 @@ const NeighborhoodCard = ({ image, name }: NeighborhoodCardProps) => {
 const NeighborhoodsSection = () => {
   const neighborhoods = [
     {
-      image: "/placeholder.svg",
-      name: "Downtown"
+      image: "https://images.unsplash.com/photo-1570029604322-77c356acea7f?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      name: "Rabat"
     },
     {
-      image: "/placeholder.svg",
-      name: "City Center"
+      image: "https://images.unsplash.com/photo-1690298552540-e0caa713ebc1?q=80&w=1934&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      name: "Casablanca"
     },
     {
-      image: "/placeholder.svg",
-      name: "Riverside"
+      image: "https://images.unsplash.com/photo-1597212618440-806262de4f6b?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      name: "Marrakech"
     },
     {
-      image: "/placeholder.svg",
-      name: "Beachfront"
+      image: "https://images.unsplash.com/photo-1505868067580-817d09206bed?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      name: "Tanger"
     }
   ];
 
@@ -41,8 +41,8 @@ const NeighborhoodsSection = () => {
     <section className="py-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold mb-2">Explore The Neighborhoods</h2>
-          <p className="text-gray-500 text-sm md:text-base">Discover the best places to live across the country</p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-2">Explorer les offres</h2>
+          <p className="text-gray-500 text-sm md:text-base">Decouvrir les parcelles avec promotions</p>
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

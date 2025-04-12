@@ -24,8 +24,8 @@ const WorkTogetherSection = () => {
     <section className="py-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-bold mb-2">Let's Work Together</h2>
-          <p className="text-gray-500 text-sm md:text-base">Join forces with the leaders in real estate</p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-2">Travaillons ensemble</h2>
+          <p className="text-gray-500 text-sm md:text-base">Rejoindre la meilleure plateforme de biens immobiliers</p>
         </div>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

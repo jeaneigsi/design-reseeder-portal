@@ -17,18 +17,14 @@ const PropertyTypeSection = () => {
     { icon: Building, title: "Office" },
     { icon: Warehouse, title: "Industrial" },
     { icon: Castle, title: "Townhouse" },
-    { icon: Compass, title: "Cottages" },
-    { icon: Mountain, title: "Farm House" },
-    { icon: Trees, title: "Villas" },
-    { icon: Waves, title: "Coastal" },
-    { icon: Landmark, title: "Lake View" },
+
   ];
 
   return (
     <section className="py-16">
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Property Type</h2>
-        <p className="text-gray-500 text-sm md:text-base text-center mb-10">Find your dream home by selecting a property type</p>
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-2">Type de propriété</h2>
+        <p className="text-gray-500 text-sm md:text-base text-center mb-10">Trouvez votre terrain en selectionnant un type</p>
         
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
           {propertyTypes.map((type, index) => (

@@ -7,7 +7,6 @@ import PopularSearches from "@/components/PopularSearches";
 import MarketSection from "@/components/MarketSection";
 import AgentsSection from "@/components/AgentsSection";
 import NeighborhoodsSection from "@/components/NeighborhoodsSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
 import CTASection from "@/components/CTASection";
 import InsightsSection from "@/components/InsightsSection";
 import WorkTogetherSection from "@/components/WorkTogetherSection";
@@ -25,7 +24,6 @@ const Index = () => {
         <MarketSection />
         <AgentsSection />
         <NeighborhoodsSection />
-        <TestimonialsSection />
         <CTASection />
         <InsightsSection />
         <WorkTogetherSection />
