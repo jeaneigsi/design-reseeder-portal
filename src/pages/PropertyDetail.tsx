@@ -127,9 +127,9 @@ const PropertyDetail = () => {
               <span>{property.location}</span>
             </div>
           </div>
-          <div className="mt-4 md:mt-0">
+          <div className="mt-4 md:mt-0 flex flex-col items-end">
             <div className="text-primary font-bold text-2xl">{formatPrice(property.price)}</div>
-            <div className="text-sm text-gray-500">
+            <div className="text-sm text-gray-500 mb-3">
               {property.forSale ? "À Vendre" : "À Louer"}
             </div>
           </div>
@@ -311,6 +311,17 @@ const PropertyDetail = () => {
               </div>
               
               <Button className="w-full">Contacter le vendeur</Button>
+              
+              <Button 
+                variant="outline" 
+                className="w-full mt-3 relative overflow-hidden group border border-gray-200"
+                onClick={() => {
+                  window.alert(`Demande d'étude de faisabilité pour la parcelle: ${property.subject}`);
+                }}
+              >
+                <span className="relative z-10 text-gray-700 group-hover:text-white transition-colors duration-500">✨ Étude de faisabilité</span>
+                <span className="absolute inset-0 w-0 bg-blue-500 group-hover:w-full transition-all duration-500 ease-in-out z-0"></span>
+              </Button>
             </motion.div>
             
             <motion.div 

@@ -23,10 +23,10 @@ const MarketSection = () => {
         </div>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <StatItem value="26+" label="Years of Experience" />
-          <StatItem value="4130" label="Properties Sold" />
-          <StatItem value="98%" label="Client Satisfaction" />
-          <StatItem value="1780" label="Awards Received" />
+          <StatItem value="26+" label="Années d'expérience" />
+          <StatItem value="4130" label="Propriétés vendues" />
+          <StatItem value="98%" label="Satisfaction des clients" />
+          <StatItem value="1780" label="Prix des ventes" />
         </div>
       </div>
     </section>

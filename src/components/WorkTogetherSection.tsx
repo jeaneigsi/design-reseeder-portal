@@ -14,10 +14,10 @@ const FeatureItem = ({ Icon, title }: { Icon: React.ElementType, title: string }
 
 const WorkTogetherSection = () => {
   const features = [
-    { icon: Building, title: "Real Estate" },
-    { icon: Users, title: "Community Work" },
-    { icon: Handshake, title: "Strategic Partners" },
-    { icon: Award, title: "Industry Leaders" },
+    { icon: Building, title: "Immobilier" },
+    { icon: Users, title: "Travail en commun" },
+    { icon: Handshake, title: "Partenaires stratégiques" },
+    { icon: Award, title: "Leader dans l'industrie" },
   ];
 
   return (
