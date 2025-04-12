@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { MapPin, SquareIcon } from "lucide-react";
 import { Parcel, formatPrice } from "@/data/parcelsData";
-import { Button } from "@/components/ui/button";
 import PropertyCard from "@/components/PropertyCard";
 
 interface PropertyListProps {
@@ -80,7 +79,6 @@ const PropertyList = ({ properties, view }: PropertyListProps) => {
               <span className="truncate">{property.location}</span>
             </div>
             <div className="text-primary font-bold mb-3 text-lg">{formatPrice(property.price)}</div>
-            
             {view === "list" && property.description && (
               <p className="text-gray-600 text-sm mb-3 line-clamp-2">{property.description}</p>
             )}

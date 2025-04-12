@@ -72,22 +72,24 @@ const PropertyFilters = ({
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 flex-wrap gap-4">
+    <div className="flex flex-col justify-between mb-8 flex-wrap gap-4">
+      {/* Titre et compteur - visible sur tous les écrans */}
       <div>
         <h1 className="text-2xl md:text-3xl font-bold mb-2">{title}</h1>
-        <p className="text-gray-500">
+        <p className="hidden sm:block text-gray-500">
           {totalResults} résultats trouvés • Page {currentPage} sur {totalPages}
         </p>
       </div>
       
-      <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
-        {/* Formulaire de recherche */}
-        <form onSubmit={handleSearch} className="flex w-full sm:w-auto">
+      {/* Zone de recherche et filtres */}
+      <div className="flex flex-col w-full gap-4">
+        {/* Formulaire de recherche - visible sur tous les écrans */}
+        <form onSubmit={handleSearch} className="flex w-full">
           <div className="relative flex-grow">
             <Input
               type="text"
               placeholder={searchPlaceholder}
-              className="pl-10 pr-4 py-2 w-full sm:w-64"
+              className="pl-10 pr-4 py-2 w-full"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -101,29 +103,33 @@ const PropertyFilters = ({
         </form>
 
         {/* Options de filtrage et d'affichage */}
-        <div className="flex items-center space-x-4 flex-wrap gap-y-2 w-full sm:w-auto">
-          {filterOptions.map(filter => (
-            <div key={filter.id} className="flex items-center">
-              <span className="mr-2 text-gray-600">{filter.name}</span>
-              <Select 
-                defaultValue={filter.defaultValue}
-                onValueChange={(value) => handleFilterChange(value, filter.id)}
-              >
-                <SelectTrigger className="w-[120px]">
-                  <SelectValue placeholder={filter.options.find(opt => opt.value === filter.defaultValue)?.label || "Tous"} />
-                </SelectTrigger>
-                <SelectContent>
-                  {filter.options.map(option => (
-                    <SelectItem key={option.value} value={option.value}>
-                      {option.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-          ))}
+        <div className="flex justify-between items-center w-full">
+          {/* Les filtres - masqués sur mobile, visibles à partir de sm */}
+          <div className="hidden sm:flex items-center space-x-4 flex-wrap gap-y-2">
+            {filterOptions.map(filter => (
+              <div key={filter.id} className="flex items-center">
+                <span className="mr-2 text-gray-600">{filter.name}</span>
+                <Select 
+                  defaultValue={filter.defaultValue}
+                  onValueChange={(value) => handleFilterChange(value, filter.id)}
+                >
+                  <SelectTrigger className="w-[120px]">
+                    <SelectValue placeholder={filter.options.find(opt => opt.value === filter.defaultValue)?.label || "Tous"} />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {filter.options.map(option => (
+                      <SelectItem key={option.value} value={option.value}>
+                        {option.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            ))}
+          </div>
           
-          <div className="flex items-center border rounded-md overflow-hidden">
+          {/* Boutons de vue - visibles sur tous les écrans */}
+          <div className="flex items-center border rounded-md overflow-hidden ml-auto">
             <button 
               className={`p-2 ${view === 'grid' ? 'bg-primary text-white' : 'bg-white'}`} 
               onClick={() => onViewChange('grid')}

@@ -198,7 +198,7 @@ const BreadcrumbNav = () => {
     // Conserver les paramètres actuels
     navigate(baseUrl + location.search);
   };
-
+  
   return (
     <nav className="bg-gray-100 border-b border-gray-200 p-4 relative">
       <div className="container mx-auto flex flex-wrap items-center">
@@ -214,7 +214,7 @@ const BreadcrumbNav = () => {
                 >
                   <Home className="h-4 w-4 mr-1" />
                   <span>{segment.name}</span>
-                </Link>
+          </Link>
               ) : segment.type === "propertyType" || segment.type === "location" ? (
                 <Popover>
                   <PopoverTrigger asChild>
@@ -281,8 +281,8 @@ const BreadcrumbNav = () => {
                   className="text-gray-600 hover:text-primary transition-colors"
                 >
                   {segment.name}
-                </Link>
-              )}
+          </Link>
+          )}
             </div>
           ))}
         </div>

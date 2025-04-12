@@ -104,7 +104,7 @@ const Location = () => {
       defaultValue: "all"
     }
   ];
-
+  
   return (
     <div className="min-h-screen bg-gray-50 pb-12">
       <Header />
