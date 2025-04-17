@@ -19,6 +19,8 @@ import Achat from "./pages/Achat";
 import Location from "./pages/Location";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import Login from "./pages/Login";
+import { AuthProvider } from "./lib/AuthContext";
 
 // Contexte pour gérer l'état de navigation et les filtres
 interface NavigationContextType {
@@ -101,20 +103,23 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <NavigationContext.Provider value={navigationContext}>
-          <BrowserRouter>
-            <ScrollToTop />
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/property" element={<Property />} />
-              <Route path="/property/:id" element={<PropertyDetail />} />
-              <Route path="/achat" element={<Achat />} />
-              <Route path="/location" element={<Location />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-        </NavigationContext.Provider>
+        <AuthProvider>
+          <NavigationContext.Provider value={navigationContext}>
+            <BrowserRouter>
+              <ScrollToTop />
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/property" element={<Property />} />
+                <Route path="/property/:id" element={<PropertyDetail />} />
+                <Route path="/achat" element={<Achat />} />
+                <Route path="/location" element={<Location />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </BrowserRouter>
+          </NavigationContext.Provider>
+        </AuthProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );

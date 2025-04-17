@@ -7,6 +7,9 @@ import Footer from "@/components/Footer";
 import BreadcrumbNav from "@/components/BreadcrumbNav";
 import RealEstateAgentCTA from "@/components/RealEstateAgentCTA";
 import PropertyCard from "@/components/PropertyCard";
+import LoginModal from "@/components/LoginModal";
+import useAuthRequired from "@/hooks/useAuthRequired";
+import { useAuth } from "@/lib/AuthContext";
 import { 
   Carousel,
   CarouselContent,
@@ -31,7 +34,8 @@ import {
   Star, 
   MessageSquare,
   ArrowLeft,
-  ChevronRight
+  ChevronRight,
+  Lock
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { parcelsData, formatPrice } from "@/data/parcelsData";
@@ -43,6 +47,7 @@ const PropertyDetail = () => {
   const [loading, setLoading] = useState(true);
   const [activeImage, setActiveImage] = useState(0);
   const [similarProperties, setSimilarProperties] = useState([]);
+  const { isLoginModalOpen, setLoginModalOpen, checkAuthAndProceed, isAuthenticated } = useAuthRequired();
 
   // Contexte de navigation pour conserver l'état
   const { previousPath } = useContext(NavigationContext);
@@ -92,6 +97,15 @@ const PropertyDetail = () => {
         navigate("/location");
       }
     }
+  };
+
+  // Fonction pour gérer la génération du rapport de faisabilité
+  const handleFeasibilityReport = () => {
+    checkAuthAndProceed(() => {
+      // Code à exécuter si l'utilisateur est authentifié
+      alert("Génération du rapport de faisabilité en cours...");
+      // Ici, vous pourriez appeler une API Supabase pour générer le rapport
+    });
   };
 
   if (loading) {
@@ -320,12 +334,18 @@ const PropertyDetail = () => {
               
               <Button className="w-full">Contacter le vendeur</Button>
 
-              {/* Bouton d'étude de faisabilité */}
+              {/* Bouton d'étude de faisabilité avec authentification */}
               <Button 
                 variant="outline" 
-                className="w-full mt-3 relative overflow-hidden group"
+                className={`w-full mt-3 relative overflow-hidden group ${!isAuthenticated ? 'flex items-center justify-center gap-2' : ''}`}
+                onClick={handleFeasibilityReport}
               >
-                <span className="relative z-10">Étude de faisabilité</span>
+                {!isAuthenticated && <Lock size={16} />}
+                <span className="relative z-10">
+                  {isAuthenticated 
+                    ? "Étude de faisabilité" 
+                    : "Connectez-vous pour accéder à l'étude de faisabilité"}
+                </span>
                 <div className="absolute bottom-0 left-0 w-full h-0 bg-primary/20 transition-all duration-500 group-hover:h-full"></div>
               </Button>
             </motion.div>
@@ -375,6 +395,13 @@ const PropertyDetail = () => {
       
       <RealEstateAgentCTA />
       <Footer />
+      
+      {/* Modal de connexion */}
+      <LoginModal 
+        isOpen={isLoginModalOpen} 
+        onClose={() => setLoginModalOpen(false)} 
+        redirectPath={`/property/${id}`}
+      />
     </div>
   );
 };
